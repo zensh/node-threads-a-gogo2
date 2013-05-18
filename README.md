@@ -116,11 +116,13 @@ To include the module in your project:
 
   notice: to set fastthread false, you can not use thread pool any more.
 
-###callback(function) every callback has the same parameter
+###callback(function) 
+  
+  every callback has the same parameter
 
-      the first argument is error, if some error occur in the thread, the parameter will be not null;
+  the first argument is error, if some error occur in the thread, the parameter will be not null;
 
-      the second argument is result,when thread.end(result) run in the thread, the result will transfer to main thread and execute the callback; thread.end see below;
+  the second argument is result,when thread.end(result) run in the thread, the result will transfer to main thread and execute the callback; thread.end see below;
    
 ###thread
 
@@ -140,9 +142,9 @@ To include the module in your project:
 
   ex2. thread.destory([true]);
 	 
-###thread pool only, waits until pendingJobs() is zero and then destroys the pool. If rudely is truthy, then it doesn't wait for pendingJobs === 0.
+  thread pool only, waits until pendingJobs() is zero and then destroys the pool. If rudely is truthy, then it doesn't wait for pendingJobs === 0.
       
-  thread.pool(function) thread pool only
+###thread.pool(function) thread pool only
 
   put some job to the idle thread in the thread pool,if all the thread is working, the job will wait.
 	
@@ -200,7 +202,7 @@ To include the module in your project:
       
   print the array or object or string or number etc. to stdio
 
-	ex1. console.log("tagg2")       
+  ex1. console.log("tagg2")       
 
 ###require(function)
 
@@ -224,11 +226,11 @@ To include the module in your project:
       
   when you set fastthread false, you can use all the api of node.js,There is no limit,but not use pool.
  
- ##more
+##more
 	
-      see /example , /benchmark and /test for more useful code. do test please run node ./test/main_test.js
+  see /example , /benchmark and /test for more useful code. do test please run node ./test/main_test.js
 
- ##future
-
-      TAGG2 module has already in experiment,so you may not use it in production.TAGG2 will more stronger and feature-richer.
+##future
+  
+  TAGG2 module has already in experiment,so you may not use it in production.TAGG2 will more stronger and feature-richer.
 
