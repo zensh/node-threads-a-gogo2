@@ -96,13 +96,13 @@ To include the module in your project:
 
   return a thread object, the thread object has some methods and properties follow. see thread api.
 
-  ex1. tagg2.create(thread_function)     
+     ex1. tagg2.create(thread_function)     
 
-  ex2. tagg2.create(poolsize)
+     ex2. tagg2.create(poolsize)
 
-  ex3. tagg2.create(thread_function, callback)
+     ex3. tagg2.create(thread_function, callback)
 
-  ex4. tagg2.create(thread_function, options, callback)
+     ex4. tagg2.create(thread_function, options, callback)
     
 ###options(object)
       
@@ -138,9 +138,9 @@ To include the module in your project:
 
   destory the thread or thread pool.make sure to execute it when you don't need the thread any more.
 
-  ex1. thread.destory();
+     ex1. thread.destory();
 
-  ex2. thread.destory([true]);
+     ex2. thread.destory([true]);
 	 
   thread pool only, waits until pendingJobs() is zero and then destroys the pool. If rudely is truthy, then it doesn't wait for pendingJobs === 0.
       
@@ -148,11 +148,11 @@ To include the module in your project:
 
   put some job to the idle thread in the thread pool,if all the thread is working, the job will wait.
 	
-	ex1. thread.pool(thread_func)
+	   ex1. thread.pool(thread_func)
+  
+	   ex2. thread.pool(thread_func, buffer)
 
-	ex2. thread.pool(thread_func, buffer)
-
-	ex3. thread.pool(thread_func, callback)
+	   ex3. thread.pool(thread_func, callback)
 
 	ex4. thread.pool(thread_func, buffer, callback)
       
@@ -160,19 +160,19 @@ To include the module in your project:
         
 	returns the number of threads in this pool
 
-  ex1. thread.totalThreads();
+     ex1. thread.totalThreads();
 	
 ###thread.idleThreads(function)
       
   returns the number of threads in this pool that are currently idle (sleeping)
 
-  ex1. thread.idleThreads();
+     ex1. thread.idleThreads();
 
 ###thread.pendingJobs(function)
           
   returns the number of jobs pending
 
-  ex1. thread.pendingJobs()
+     ex1. thread.pendingJobs()
 
 ###in the thread1(fast thread)
 
@@ -190,25 +190,25 @@ To include the module in your project:
 
   return string; to get the buffer to utf-8 string
 
-  ex1. thread.buffer.toString();
+     ex1. thread.buffer.toString();
 
 ###thread.end(function)
 
-  ex1.thread.end(); return undefined result to main thread callback;
+     ex1.thread.end(); return undefined result to main thread callback;
 
-  ex2.thread.end(reslut); return array or object or string to main thread callback;
+     ex2.thread.end(reslut); return array or object or string to main thread callback;
       
 ###console.log(function)
       
   print the array or object or string or number etc. to stdio
 
-  ex1. console.log("tagg2")       
+     ex1. console.log("tagg2")       
 
 ###require(function)
 
   load a js file,you can use global object to read or write the Variable in the require file
 
-	ex1. require("tagg2_require.js"); //make sure tagg2_require.js has in the same dir with __dirname
+     ex1. require("tagg2_require.js"); //make sure tagg2_require.js has in the same dir with __dirname
 
 	notice. in the fast thread, there is not a really node.js runtime env,so you can't require node.js module,so don't do that 'var fs = require("fs");'
 
