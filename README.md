@@ -14,17 +14,17 @@ Threads A GoGo2 module is supported windows, linux, mac.
 
 Make sure, node-gyp has installed.
 
-     npm install threads_a_gogo2
+     npm install tagg2
 
 From source:
 
-     git clone http://github.com/xk/node-threads-a-gogo.git
+     git clone https://github.com/DoubleSpout/node-threads-a-gogo2.git
      cd node-threads-a-gogo2
      node-gyp rebuild
 
 To include the module in your project:
 
-     var TAGG2 = require('threads_a_gogo2');
+     var tagg2 = require('tagg2');
 
 ## Quick example
 
@@ -130,7 +130,7 @@ To include the module in your project:
 
   if you set poolsize from tagg2.create(...),like tagg2.create(10),return thread pool object.
 
-###thread.id(property) not support thread pool create
+###thread.id(property) not support thread pool
       
   the number mark the thread or child process.
 
@@ -154,11 +154,11 @@ To include the module in your project:
 
 	   ex3. thread.pool(thread_func, callback)
 
-	ex4. thread.pool(thread_func, buffer, callback)
+	   ex4. thread.pool(thread_func, buffer, callback)
       
 ###thread.totalThreads(function)
         
-	returns the number of threads in this pool
+ returns the number of threads in this pool
 
      ex1. thread.totalThreads();
 	
@@ -184,7 +184,7 @@ To include the module in your project:
   
 ###thread.buffer(property)
         
-	object,save the buffer object which has sent from main thread.
+ object,save the buffer object which has sent from main thread.
 
 ###thread.buffer.toString(function)
 
@@ -206,11 +206,11 @@ To include the module in your project:
 
 ###require(function)
 
-  load a js file,you can use global object to read or write the Variable in the require file
+ load a js file,you can use global object to read or write the Variable in the require file
 
      ex1. require("tagg2_require.js"); //make sure tagg2_require.js has in the same dir with __dirname
 
-	notice. in the fast thread, there is not a really node.js runtime env,so you can't require node.js module,so don't do that 'var fs = require("fs");'
+ notice. in the fast thread, there is not a really node.js runtime env,so you can't require node.js module,so don't do that 'var fs = require("fs");'
 
 ###global(object)
 
