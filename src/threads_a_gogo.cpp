@@ -6,10 +6,11 @@
 #include <node_version.h>
 #include <node_buffer.h>
 
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#else
+#ifdef WIN32
 #include <io.h>
+#else
+#include <unistd.h>
+
 #endif
 
 #include <string.h>

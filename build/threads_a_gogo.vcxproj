@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5804E7FC-C80C-7AB4-61E6-0CDF7C18ED5B}</ProjectGuid>
+    <ProjectGuid>{5A1BC8AA-2B3D-701A-ACD7-49B58B20BE92}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>threads_a_gogo</RootNamespace>
   </PropertyGroup>

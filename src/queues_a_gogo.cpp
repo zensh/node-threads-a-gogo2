@@ -8,10 +8,11 @@
   #include <pthread.h>
 #endif
 
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#else
+#ifdef WIN32
 #include <io.h>
+#else
+#include <unistd.h>
+
 #endif
 
 #include <string.h>
