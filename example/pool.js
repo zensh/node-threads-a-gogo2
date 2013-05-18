@@ -50,6 +50,7 @@ var thread_cb = function(err, res){//线程回调函数
 //创建子线程,并且注册回调
 //create a thread and regist the calback
 var thread = tagg.create(3);
+thread.dirname = __dirname;
 //or var thread = tagg.create(th_func,{buffer:buf,poolsize:3},thread_cb);
 thread.pool(th_func,buf,thread_cb);
 thread.pool(th_func,buf,thread_cb);

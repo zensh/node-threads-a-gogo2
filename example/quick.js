@@ -31,7 +31,7 @@ var th_func = function(){
 
 //创建子线程,并且注册回调
 //create a thread and regist the calback
-var thread = tagg.create(th_func,{buffer:buf},function(err, res){
+var thread = tagg.create(th_func,{buffer:buf,dirname:__dirname},function(err, res){
 	if(err) throw new(err);
 	console.log(res);//thread.end
 	thread.destroy();//摧毁线程

@@ -1,6 +1,6 @@
 {
   "name": "tagg2",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "main": "index.js",
   "description": "full name is threads_a_gogo2,it is a cross platform support, Simple and fast JavaScript threads for Node.js",
   "keywords": [
@@ -32,6 +32,7 @@
   "os": [
     "macos",
     "linux",
+    "darwin",
     "win32"
   ],
   "engines": {
