@@ -92,7 +92,7 @@ To include the module in your project:
 
   object, you can get tagg2 object from require('tagg2');
 
-###tagg2.create(function)
+###tagg2.create(...)
 
   return a thread object, the thread object has some methods and properties follow. see thread api.
 
@@ -104,7 +104,7 @@ To include the module in your project:
 
      ex4. tagg2.create(thread_function, options, callback)
     
-###options(object)
+###options
       
   buffer the buffer which you want to transfer to thread,default is false;
 
@@ -122,7 +122,7 @@ To include the module in your project:
 
   notice: to set fastthread false, you can not use thread pool any more.
 
-###callback(function) 
+###callback(err,res) 
   
   every callback has the same parameter
 
@@ -136,11 +136,11 @@ To include the module in your project:
 
   if you set poolsize from tagg2.create(...),like tagg2.create(10),return thread pool object.
 
-###thread.id(property) not support thread pool
+###thread.id  --not support thread pool
       
   the number mark the thread or child process.
 
-###thread.destory(function)
+###thread.destory([true]])
 
   destory the thread or thread pool.make sure to execute it when you don't need the thread any more.
 
@@ -150,7 +150,7 @@ To include the module in your project:
 	 
   thread pool only, waits until pendingJobs() is zero and then destroys the pool. If rudely is truthy, then it doesn't wait for pendingJobs === 0.
       
-###thread.pool(function) thread pool only
+###thread.pool(...)   --thread pool only
 
   put some job to the idle thread in the thread pool,if all the thread is working, the job will wait.
 	
@@ -162,71 +162,81 @@ To include the module in your project:
 
 	   ex4. thread.pool(thread_func, buffer, callback)
       
-###thread.totalThreads(function)
+###thread.totalThreads()
         
  returns the number of threads in this pool
 
      ex1. thread.totalThreads();
 	
-###thread.idleThreads(function)
+###thread.idleThreads()
       
   returns the number of threads in this pool that are currently idle (sleeping)
 
      ex1. thread.idleThreads();
 
-###thread.pendingJobs(function)
+###thread.pendingJobs()
           
   returns the number of jobs pending
 
      ex1. thread.pendingJobs()
 
-###in the thread1(fast thread)
+###in the fast thread function,set fastthread to true,default is it
 
   in every thread function,you can use global object below;
 
-###thread.id(property)
+###thread.id
 
   the number mark the thread or child process.
   
-###thread.buffer(property)
+###thread.buffer   --buffer object
         
  object,save the buffer object which has sent from main thread.
 
-###thread.buffer.toString(function)
+###thread.buffer.toString()
 
   return string; to get the buffer to utf-8 string
 
      ex1. thread.buffer.toString();
 
-###thread.end(function)
+###thread.end([prarm])
 
      ex1.thread.end(); return undefined result to main thread callback;
 
      ex2.thread.end(reslut); return array or object or string to main thread callback;
       
-###console.log(function)
+###console.log(param)
       
   print the array or object or string or number etc. to stdio
 
      ex1. console.log("tagg2")       
 
-###require(function)
+###require(filepath) 
 
  load a js file,you can use global object to read or write the Variable in the require file
 
-     ex1. require("tagg2_require.js"); //make sure tagg2_require.js has in the same dir with __dirname
+     ex1. require("tagg2_require.js"); //make sure tagg2_require.js has in the same dir with __dirname,
+ 
+ in tagg2 0.1.x version require isn't support "../../" and "/user" filepath,it is only support the relative path.
+
+ for example my running nodejs file is in "/user/local/", I want to require "/user/local/req/req.js", the code is
+
+     require('req/req.js');
+
+ notice in fastthread, the required file not support "moudle.export", please use global.xxxx to share the function or object.
 
  notice. in the fast thread, there is not a really node.js runtime env,so you can't require node.js module,so don't do that 'var fs = require("fs");'
 
-###global(object)
+###global    --in thread's global object
 
   save the global object in the thread like Browser's window.you can set or get some value from it.every thread has it's own global.
 
-###__dirname(string)
+###__dirname
         
   the nodejs dir path which you call the thread.
   
-###in the thread2
+###user fastthread:false
+
+  set fastthread to false will use the slow thread, it fact is a real nodejs process,tagg2 use of child.fork() to achieve
       
   all in the thread1's object and functionally
       
