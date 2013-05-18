@@ -182,16 +182,16 @@ static Handle<Value> require_file(const Arguments &args) //读取js文件
 	std::string path_str = *utf8_value;
 
 #ifdef WIN32
-	std::string sep= "\\";
+	std::string sep = "\\";
 #else
-	std::string sep= "/";
+	std::string sep = "/";
 #endif
 
 	path_str = dirname + sep + path_str; //将字符串连接其起来__dirname+'/'+'fff'
 	
-	
+	//std::cout<<path_str<<std::endl;
 
-	char *file = readFile(path);
+	char *file = readFile(String::New(path_str.c_str()));
 	
 	
 

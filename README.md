@@ -112,6 +112,12 @@ To include the module in your project:
 
   fastthread set false,to use nodejs env thread, you can use all nodejs module and api.set false use quick thread, you only can use js function but fast.default is true.
 
+  dirname if you want to use require in thread, make sure set the correct dirname.you can also set it by created thread pool like this:
+
+     var threadp1 = tagg.create(5);
+     
+     threadp1.dirname = __dirname;
+
   notice if fastthread is false,you have the real another node.js process
 
   notice: to set fastthread false, you can not use thread pool any more.

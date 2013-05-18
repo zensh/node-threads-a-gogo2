@@ -26,7 +26,8 @@
   },
   "scripts": {
     "preinstall": "node install.js",
-    "install": "node-gyp rebuild"
+    "install": "node-gyp rebuild",
+    "test": "node ./test/main_test.js"
   },
   "os": [
     "macos",
